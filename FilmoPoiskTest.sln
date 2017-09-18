@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmoPoiskTest", "FilmoPoiskTest\FilmoPoiskTest.csproj", "{C485A738-E8C2-46B0-9B3C-6FDC42DF6F39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmoPoiskTest.Tests", "FilmoPoiskTest.Tests\FilmoPoiskTest.Tests.csproj", "{3A655AEF-FBE0-4A7D-9065-518FDC009EF7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C485A738-E8C2-46B0-9B3C-6FDC42DF6F39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C485A738-E8C2-46B0-9B3C-6FDC42DF6F39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C485A738-E8C2-46B0-9B3C-6FDC42DF6F39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C485A738-E8C2-46B0-9B3C-6FDC42DF6F39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A655AEF-FBE0-4A7D-9065-518FDC009EF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A655AEF-FBE0-4A7D-9065-518FDC009EF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A655AEF-FBE0-4A7D-9065-518FDC009EF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A655AEF-FBE0-4A7D-9065-518FDC009EF7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AB916D7D-CF95-41E9-B2A6-218E6EFDF1A5}
+	EndGlobalSection
+EndGlobal
