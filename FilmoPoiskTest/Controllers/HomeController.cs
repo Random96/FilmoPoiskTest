@@ -1,18 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
 namespace FilmoPoiskTest.Controllers
 {
+	[Authorize]
 	public class HomeController : Controller
 	{
-		public ActionResult Index()
+		const int PageSize = 5;
+
+		private readonly Models.ICinemaService m_Rep;
+
+		public HomeController(Models.ICinemaService _Rep)
 		{
-			return View();
+			m_Rep = _Rep;
 		}
 
+		[AllowAnonymous]
+		public async Task<ActionResult> Index(int id = 0, int Direction = 1 )
+		{
+			var ret = await m_Rep.GetListAsync(id, Direction, PageSize);
+
+			/*
+			switch (Direction)
+			{
+				case 1:
+					ret = await m_Rep.GetListAsync(id, PageSize);
+					break;
+
+				case -1:
+					ret = await m_Rep.GetListBackAsync(id, PageSize);
+					break;
+
+				default:
+					ret = new List<Models.CinemaViewModels>();
+					break;
+			}
+			*/
+
+			return View(ret);
+		}
+
+
+		[AllowAnonymous]
 		public ActionResult About()
 		{
 			ViewBag.Message = "Your application description page.";
@@ -20,6 +53,7 @@ namespace FilmoPoiskTest.Controllers
 			return View();
 		}
 
+		[AllowAnonymous]
 		public ActionResult Contact()
 		{
 			ViewBag.Message = "Your contact page.";

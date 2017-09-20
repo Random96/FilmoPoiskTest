@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using FilmoPoiskTest.Models;
+using FilmoPoiskTest.Model;
 
 namespace FilmoPoiskTest
 {
@@ -42,7 +43,7 @@ namespace FilmoPoiskTest
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
         {
-            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
+            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<DbContext>()));
             // Настройка логики проверки имен пользователей
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {

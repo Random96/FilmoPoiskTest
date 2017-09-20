@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmoPoiskTest", "FilmoPois
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmoPoiskTest.Tests", "FilmoPoiskTest.Tests\FilmoPoiskTest.Tests.csproj", "{3A655AEF-FBE0-4A7D-9065-518FDC009EF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmoPoiskTest.Data", "FilmoPoiskTest.Data\FilmoPoiskTest.Data.csproj", "{EF305263-0195-440F-B315-27FBC0AB6B58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmoPoiskTest.Model", "FilmoPoiskTest.Model\FilmoPoiskTest.Model.csproj", "{839A501A-D9AB-487F-A027-90023848CC01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{3A655AEF-FBE0-4A7D-9065-518FDC009EF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A655AEF-FBE0-4A7D-9065-518FDC009EF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A655AEF-FBE0-4A7D-9065-518FDC009EF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF305263-0195-440F-B315-27FBC0AB6B58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF305263-0195-440F-B315-27FBC0AB6B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF305263-0195-440F-B315-27FBC0AB6B58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF305263-0195-440F-B315-27FBC0AB6B58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{839A501A-D9AB-487F-A027-90023848CC01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{839A501A-D9AB-487F-A027-90023848CC01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{839A501A-D9AB-487F-A027-90023848CC01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{839A501A-D9AB-487F-A027-90023848CC01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
