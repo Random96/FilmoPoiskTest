@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FilmoPoiskTest.Model
 {
-	public interface IRWRepository<T, Key> : IRepository<T, Key> where T : class, IKeyable<Key>, new()
+	public interface IRWRepository<T> : IRepository<T> where T : class, IKeyable, new()
 	{
 		#region Sync
 		void Create(T t);
@@ -15,7 +15,7 @@ namespace FilmoPoiskTest.Model
 
 		void Update(T t);
 
-		T GetItemById(Key Id);
+		T GetItemById(int Id);
 		#endregion
 
 		#region Async
@@ -25,7 +25,7 @@ namespace FilmoPoiskTest.Model
 
 		Task UpdateAsync(T t);
 
-		Task<T> GetItemByIdAsync(Key Id);
+		Task<T> GetItemByIdAsync(int Id);
 		#endregion
 	}
 }

@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FilmoPoiskTest.Model;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
 namespace FilmoPoiskTest.Data
 {
-	public class Cinema
+	public class Cinema : IKeyable
 	{
 		[Key]
 		public int Id { get; set; }

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 
@@ -32,6 +33,19 @@ namespace FilmoPoiskTest
 			//	@"data source=(LocalDb)\MSSQLLocalDB;initial catalog=EmlSoft.KBSTest.SqlContext;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework")
 			//  .InstancePerLifetimeScope()
 			//  .ExternallyOwned();
+
+
+			foreach( var modul in AppDomain.CurrentDomain.GetAssemblies() )
+			{
+				var Type = modul.GetTypes().FirstOrDefault(x=>x.Name == "AutofacModule");
+				if( Type != null )
+				{
+					var q = typeof(ModuleRegistrationExtensions);
+					var p = q.GetMethods().FirstOrDefault( l=>l.Name == "RegisterModule" && l.GetParameters().Where(x=>x.Name == "builder").Any() );
+					var r = p.MakeGenericMethod(Type);
+					r.Invoke(null, new[] { builder} );
+				}
+			}
 
 			// создаем новый контейнер с теми зависимостями, которые определены выше
 			var container = builder.Build();

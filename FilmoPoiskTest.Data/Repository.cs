@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FilmoPoiskTest.Data
 {
-	public class Repository<T> : Model.IRWRepository<T, int>, IDisposable where T : class, Model.IKeyable<int>, new()
+	public class Repository<T> : Model.IRWRepository<T>, IDisposable where T : class, Model.IKeyable, new()
 	{
 		private Model.IContext m_Context;
 

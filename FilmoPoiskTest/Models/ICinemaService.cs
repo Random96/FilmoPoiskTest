@@ -8,7 +8,7 @@ namespace FilmoPoiskTest.Models
 {
 	public interface ICinemaService
 	{
-		Task<ICollection<CinemaViewModels>> GetListAsync(int Pos, int Direct, int Count);
+		Task<IEnumerable<CinemaViewModels>> GetListAsync(int Pos, int Direct, int Count);
 
 		Task CreateAsync(string User, CinemaViewModels src);
 		Task EditAsync(string User, CinemaViewModels src);

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace FilmoPoiskTest.Model
 {
-	public interface IKeyable<Key>
+	public interface IKeyable
 	{
-		Key Id { get; set; }
+		int Id { get; set; }
 	}
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FilmoPoiskTest.Model
 {
-	public interface IRepository<T, Key> where T : class, IKeyable<Key>, new()
+	public interface IRepository<T> where T : class, IKeyable, new()
 	{
 		IEnumerable<T> GetList(int From, int PageSize);
 

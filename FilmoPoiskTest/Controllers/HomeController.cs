@@ -24,23 +24,6 @@ namespace FilmoPoiskTest.Controllers
 		{
 			var ret = await m_Rep.GetListAsync(id, Direction, PageSize);
 
-			/*
-			switch (Direction)
-			{
-				case 1:
-					ret = await m_Rep.GetListAsync(id, PageSize);
-					break;
-
-				case -1:
-					ret = await m_Rep.GetListBackAsync(id, PageSize);
-					break;
-
-				default:
-					ret = new List<Models.CinemaViewModels>();
-					break;
-			}
-			*/
-
 			return View(ret);
 		}
 

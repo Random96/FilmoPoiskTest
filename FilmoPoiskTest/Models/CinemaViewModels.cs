@@ -22,7 +22,7 @@ namespace FilmoPoiskTest.Models
 		public string Director { get; set; }
 
 		[Display(Name = "Постер")]
-		public Image Poster { get; set; }
+		public Bitmap Poster { get; set; }
 
 		[Required]
 		[Display(Name = "Пользователь, который выложил информацию")]
