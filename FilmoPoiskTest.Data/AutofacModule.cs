@@ -1,10 +1,10 @@
 ﻿using System.Reflection;
 using Autofac;
-using FilmoPoiskTest.Models;
 using AutoMapper;
 using System.Drawing;
 using System.IO;
 using System.Drawing.Imaging;
+using FilmoPoiskTest.Model;
 
 namespace FilmoPoiskTest.Data
 {

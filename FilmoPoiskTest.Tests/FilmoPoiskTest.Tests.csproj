@@ -144,6 +144,10 @@
       <Project>{ef305263-0195-440f-b315-27fbc0ab6b58}</Project>
       <Name>FilmoPoiskTest.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FilmoPoiskTest.Model\FilmoPoiskTest.Model.csproj">
+      <Project>{839a501a-d9ab-487f-a027-90023848cc01}</Project>
+      <Name>FilmoPoiskTest.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FilmoPoiskTest\FilmoPoiskTest.csproj">
       <Project>{C485A738-E8C2-46B0-9B3C-6FDC42DF6F39}</Project>
       <Name>FilmoPoiskTest</Name>

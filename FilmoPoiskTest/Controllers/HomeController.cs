@@ -12,9 +12,9 @@ namespace FilmoPoiskTest.Controllers
 	{
 		const int PageSize = 5;
 
-		private readonly Models.ICinemaService m_Rep;
+		private readonly Model.ICinemaService m_Rep;
 
-		public HomeController(Models.ICinemaService _Rep)
+		public HomeController(Model.ICinemaService _Rep)
 		{
 			m_Rep = _Rep;
 		}
@@ -42,6 +42,16 @@ namespace FilmoPoiskTest.Controllers
 			ViewBag.Message = "Your contact page.";
 
 			return View();
+		}
+
+		public ActionResult Create()
+		{
+			return View( new Model.CinemaViewModels() );
+		}
+
+		public ActionResult Edit()
+		{
+			return View(new Model.CinemaViewModels());
 		}
 	}
 }

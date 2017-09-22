@@ -59,7 +59,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
+    <Compile Include="CinemaViewModels.cs" />
     <Compile Include="ContextFactory.cs" />
+    <Compile Include="ICinemaService.cs" />
     <Compile Include="IContext.cs" />
     <Compile Include="IKeyable.cs" />
     <Compile Include="IRepository.cs" />

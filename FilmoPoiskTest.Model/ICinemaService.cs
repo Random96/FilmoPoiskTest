@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FilmoPoiskTest.Models
+namespace FilmoPoiskTest.Model
 {
 	public interface ICinemaService
 	{
@@ -12,6 +12,5 @@ namespace FilmoPoiskTest.Models
 
 		Task CreateAsync(string User, CinemaViewModels src);
 		Task EditAsync(string User, CinemaViewModels src);
-		Task DeleteAsync(string User, int Id);
 	}
 }

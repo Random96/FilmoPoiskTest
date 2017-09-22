@@ -79,10 +79,9 @@
       <Project>{839a501a-d9ab-487f-a027-90023848cc01}</Project>
       <Name>FilmoPoiskTest.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FilmoPoiskTest\FilmoPoiskTest.csproj">
-      <Project>{c485a738-e8c2-46b0-9b3c-6fdc42df6f39}</Project>
-      <Name>FilmoPoiskTest</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy FilmoPoiskTest.Data*.* ..\..\..\FilmoPoiskTest\lib</PostBuildEvent>
+  </PropertyGroup>
 </Project>

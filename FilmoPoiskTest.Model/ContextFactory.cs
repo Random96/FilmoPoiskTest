@@ -11,9 +11,11 @@ namespace FilmoPoiskTest.Model
 {
 	public class ContextFactory
 	{
+		public const string ProductRepositoryTypeName = "ProductRepositoryType";
+
 		public static DbContext CreateContext()
 		{
-			string productRepositoryTypeName = WebConfigurationManager.AppSettings["ProductRepositoryType"];
+			string productRepositoryTypeName = WebConfigurationManager.AppSettings[ProductRepositoryTypeName];
 
 			Type type = Type.GetType(productRepositoryTypeName);
 

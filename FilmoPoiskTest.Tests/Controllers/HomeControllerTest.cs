@@ -14,9 +14,9 @@ namespace FilmoPoiskTest.Tests.Controllers
 	[TestClass]
 	public class HomeControllerTest
 	{
-		private Mock<Models.ICinemaService> _rep;
+		private Mock<Model.ICinemaService> _rep;
 
-		Models.ICinemaService Rep => _rep?.Object ?? (_rep = new Mock<Models.ICinemaService>()).Object;
+		Model.ICinemaService Rep => _rep?.Object ?? (_rep = new Mock<Model.ICinemaService>()).Object;
 
 		[TestMethod]
 		public void Index()

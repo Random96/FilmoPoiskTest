@@ -1,7 +1,8 @@
 ﻿using System.Drawing;
 using System.ComponentModel.DataAnnotations;
+using FilmoPoiskTest.Model;
 
-namespace FilmoPoiskTest.Models
+namespace FilmoPoiskTest.Model
 {
 	public class CinemaViewModels
 	{

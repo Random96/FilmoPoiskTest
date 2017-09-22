@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 
 namespace FilmoPoiskTest
@@ -21,30 +22,19 @@ namespace FilmoPoiskTest
 			// регистрируем контроллер в текущей сборке
 			builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
-			// регистрируем споставление типов
-			// builder.RegisterType<Models.ApplicationDbContext>().As<Data.IContext>().SingleInstance();
-
-			//builder.RegisterType<ModelView.SourceModelView>().As<ModelView.ISourceModelView>();
-
-			//builder.RegisterType<Domain.HttpGrubber>().As<Domain.IGrubber>();
-
-			// Мы не доверяем администратору
-			//builder.RegisterType<Data.SqlContext>().WithParameter("ConnectionString",
-			//	@"data source=(LocalDb)\MSSQLLocalDB;initial catalog=EmlSoft.KBSTest.SqlContext;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework")
-			//  .InstancePerLifetimeScope()
-			//  .ExternallyOwned();
+			// load external library
+			Type type = Type.GetType(WebConfigurationManager.AppSettings[Model.ContextFactory.ProductRepositoryTypeName]);
 
 
-			foreach( var modul in AppDomain.CurrentDomain.GetAssemblies() )
+			foreach (var modul in AppDomain.CurrentDomain.GetAssemblies().Where(x => x.GetTypes().Where(p => p.Name == "AutofacModule").Any()))
 			{
-				var Type = modul.GetTypes().FirstOrDefault(x=>x.Name == "AutofacModule");
-				if( Type != null )
-				{
-					var q = typeof(ModuleRegistrationExtensions);
-					var p = q.GetMethods().FirstOrDefault( l=>l.Name == "RegisterModule" && l.GetParameters().Where(x=>x.Name == "builder").Any() );
-					var r = p.MakeGenericMethod(Type);
-					r.Invoke(null, new[] { builder} );
-				}
+				var Type = modul.GetTypes().FirstOrDefault(x => x.Name == "AutofacModule");
+
+				typeof(ModuleRegistrationExtensions)
+					?.GetMethods()
+					?.FirstOrDefault(l => l.Name == "RegisterModule" && l.GetParameters().Where(x => x.Name == "builder").Any())
+					?.MakeGenericMethod(Type)
+					?.Invoke(null, new[] { builder });
 			}
 
 			// создаем новый контейнер с теми зависимостями, которые определены выше
