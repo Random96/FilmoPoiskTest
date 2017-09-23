@@ -18,10 +18,11 @@ namespace FilmoPoiskTest.Data
 			m_Rep = rep;
 		}
 
-
-		public Task CreateAsync(string User, CinemaViewModels src)
+		public async Task CreateAsync(string User, CinemaViewModelsWithPoster src)
 		{
-			throw new NotImplementedException();
+			src.User = User;
+
+			await m_Rep.CreateAsync(Mapper.Map<Cinema>(src));
 		}
 
 		public Task DeleteAsync(string User, int Id)
@@ -29,9 +30,16 @@ namespace FilmoPoiskTest.Data
 			throw new NotImplementedException();
 		}
 
-		public Task EditAsync(string User, CinemaViewModels src)
+		public async Task EditAsync(string User, CinemaViewModelsWithPoster src)
 		{
-			throw new NotImplementedException();
+			await m_Rep.UpdateAsync(Mapper.Map<Cinema>(src));
+		}
+
+		public async Task<CinemaViewModelsWithPoster> GetById(int Id)
+		{
+			var ret = await m_Rep.GetItemByIdAsync(Id);
+
+			return Mapper.Map<CinemaViewModelsWithPoster>(ret);
 		}
 
 		public async Task<IEnumerable<CinemaViewModels>> GetListAsync(int Pos, int Direct, int Count)

@@ -7,60 +7,74 @@
 	<h1>ASP.NET Cinema library test</h1>
 </div>
 
-<div class="text-left">
-	Список фильмов:
-</div>
 
-<p>
-	@Html.ActionLink("Добавить новый", "Create")
-</p>
 
-<table class="table">
-	<tr>
-		<th>
-			@Html.DisplayNameFor(model => model.Name)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.Description)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.Year)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.Director)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.User)
-		</th>
-		<th></th>
-	</tr>
+@if (Model.Count() == 0)
+{
+	<div class="text-left">
+		Список фильмов пуст
+	</div>
+	<p>
+		@Html.ActionLink("Добавить новый", "Create")
+	</p>
+}
+else
+{
+	<div class="text-left">
+		Список фильмов:
+	</div>
 
-	@foreach (var item in Model)
-	{
+	<p>
+		@Html.ActionLink("Добавить новый", "Create")
+	</p>
+
+	<table class="table">
 		<tr>
-			<td>
-				@Html.DisplayFor(modelItem => item.Name)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Description)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Year)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Director)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.User)
-			</td>
-			<td>
-				@Html.ActionLink("Edit", "Edit", new { id = item.Id }) 
-			</td>
+			<th>
+				@Html.DisplayNameFor(model => model.Name)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Description)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Year)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Director)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.User)
+			</th>
+			<th></th>
 		</tr>
-	}
 
-</table>
-@Html.ActionLink("<<", "Index", new { Id = 0, Direction = 1 }) |
-@Html.ActionLink("<", "Index", new { Id = Model?.FirstOrDefault()?.Id ?? 0, Direction = -1 }) |
-@Html.ActionLink(">", "Index", new { Id = Model?.LastOrDefault()?.Id ?? int.MaxValue, Direction = 1 }) |
-@Html.ActionLink(">>", "Index", new { Id = int.MaxValue, Direction = -1 })
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Name)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Description)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Year)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Director)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.User)
+				</td>
+				<td>
+					@Html.ActionLink("Edit", "Edit", new { id = item.Id })
+				</td>
+			</tr>
+		}
+	</table>
+	@Html.ActionLink("<<", "Index", new { Id = 0, Direction = 1 })
+    @Html.ActionLink("<", "Index", new { Id = Model?.FirstOrDefault()?.Id ?? 0, Direction = -1 })
+	@Html.ActionLink(">", "Index", new { Id = Model?.LastOrDefault()?.Id ?? int.MaxValue, Direction = 1 })
+	@Html.ActionLink(">>", "Index", new { Id = int.MaxValue, Direction = -1 })
+}
+

@@ -10,7 +10,10 @@ namespace FilmoPoiskTest.Model
 	{
 		Task<IEnumerable<CinemaViewModels>> GetListAsync(int Pos, int Direct, int Count);
 
-		Task CreateAsync(string User, CinemaViewModels src);
-		Task EditAsync(string User, CinemaViewModels src);
+		Task<CinemaViewModelsWithPoster> GetById(int Id);
+
+		Task CreateAsync(string User, CinemaViewModelsWithPoster src);
+
+		Task EditAsync(string User, CinemaViewModelsWithPoster src);
 	}
 }

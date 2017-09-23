@@ -22,11 +22,16 @@ namespace FilmoPoiskTest.Model
 		[Display(Name = "Режиссёр")]
 		public string Director { get; set; }
 
-		[Display(Name = "Постер")]
-		public Bitmap Poster { get; set; }
+		public bool HasPoser { get; set; }
 
-		[Required]
+
 		[Display(Name = "Пользователь, который выложил информацию")]
 		public string User { get; set; }
+	}
+
+	public class CinemaViewModelsWithPoster : CinemaViewModels
+	{
+		[Display(Name = "Постер")]
+		public Bitmap Poster { get; set; }
 	}
 }

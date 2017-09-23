@@ -9,11 +9,13 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using FilmoPoiskTest.Models;
+using FilmoPoiskTest.Utils;
 
 namespace FilmoPoiskTest.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+	[CinemaException]
+	public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;

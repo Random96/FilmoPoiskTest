@@ -27,8 +27,10 @@ namespace FilmoPoiskTest.Data
 		{
 			if (image == null || image.Length == 0) return null;
 
-			using (MemoryStream ms = new MemoryStream())
+			using (MemoryStream ms = new MemoryStream(image))
+			{
 				return new Bitmap(ms);
+			}
 		}
 
 	}
@@ -50,11 +52,20 @@ namespace FilmoPoiskTest.Data
 			Mapper.Initialize(config =>
 			{
 				// automap configure
-				config.CreateMap<CinemaViewModels, Cinema>()
+				config.CreateMap<CinemaViewModelsWithPoster, Cinema>()
 				.ForMember(x => x.Poster, opt => opt.MapFrom(y => ImageHekper.ToByteArray( y.Poster ) ));
 
+
 				config.CreateMap<Cinema, CinemaViewModels>()
+				.ForMember(x => x.HasPoser, opt => opt.MapFrom(y => y.Poster != null ));
+
+				config.CreateMap<Cinema, CinemaViewModelsWithPoster>()
+				.ForMember(x => x.HasPoser, opt => opt.MapFrom(y => y.Poster != null))
 				.ForMember(x => x.Poster, opt => opt.MapFrom(y => ImageHekper.ToBitmap(y.Poster)));
+
+
+				config.CreateMap<CinemaViewModels, CinemaViewModelsWithPoster>();
+
 			});
 
 		}
